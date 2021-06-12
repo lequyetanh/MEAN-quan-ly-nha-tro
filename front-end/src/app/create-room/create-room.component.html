@@ -1,0 +1,34 @@
+<div class="container1">
+    <div class="mart-30 card-body">
+        <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+            <div class="form-group" style="display:none;">
+                <label for="inputid">Id</label>
+                <input class="form-control" type="text" formControlName="id">
+            </div>
+
+            <div class="form-group">
+                <label for="inputRoom">Phòng</label>
+                <input class="form-control" type="text" formControlName="room">
+            </div>
+
+            <div class="form-group">
+                <label for="inputPrice">Giá Phòng</label>
+                <input class="form-control" type="text" formControlName="price">
+            </div>
+
+            <div class="form-group">
+                <label for="inputState">Trạng thái</label>
+                <input class="form-control" type="text" formControlName="status">
+            </div>
+
+            <div class="form-group" style="display:none;">
+                <label for="inputUser">Tên Người thuê</label>
+                <input class="form-control" type="text" formControlName="user">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

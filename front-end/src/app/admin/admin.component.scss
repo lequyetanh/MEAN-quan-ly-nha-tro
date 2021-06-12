@@ -1,0 +1,120 @@
+.containe{
+    width:90%;
+    margin:auto;
+}
+
+.filter{
+    width:150px;
+    height:30px;
+    font-size:20px;
+    background:rgb(4, 44, 224);
+    padding:15px;
+    color:rgb(238, 238, 238);
+}
+
+.number1{
+    // border:1px solid #FFF;
+}
+
+.number1 div{
+    color:rgb(0, 132, 255);
+    border:1px solid rgb(212, 212, 212);
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:18px;
+    font-weight:700;
+}
+
+.button{
+    background: transparent;
+}
+
+.page-link{
+    background:#111010 !important;
+    border:none !important;
+    outline: none !important;
+    cursor:pointer !important;
+}
+
+.page-item.active .page-link {
+    z-index: 1!important;
+    color: rgb(0, 0, 0)!important;
+    background-color: #dfdfdf!important;
+}
+
+.border.disabled{
+    border:1px solid transparent !important;       
+}
+
+.border{
+border:1px solid #afafaf !important;    
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+
+
+.frame{
+    // width:850px !important;
+    height:auto;
+}
+
+.page-item{
+    margin:4px !important;
+}
+
+.roomEmpty{
+    background:#FFF;
+    color:#111010;
+    width:50px;
+    height:40px;
+    border:1px solid #111010;
+    border-radius: 50%;
+}
+
+.roomOccupy{
+    background:rgb(212, 8, 8);
+    color:#111010;
+    width:50px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.note1{
+    width:30px;
+    height:30px;
+    background:#FFF;
+    border-radius:50%;
+}
+
+.note2{
+    width:30px;
+    height:30px;
+    background:rgb(212, 8, 8);
+    border-radius:50%;
+}
+
+.chart{
+    font-size:20px;
+    padding:5px;
+    background:rgb(28, 29, 28);
+    text-align:center;
+    margin-top:20px;
+    width:300px;
+}
+
+.fa-minus-circle{
+    position: absolute;
+    top: -25px;
+    right: -20px;
+    font-size: 25px;
+    cursor: pointer;
+    &:hover{
+        color:rgb(224, 217, 4);
+    }
+}

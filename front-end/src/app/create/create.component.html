@@ -1,0 +1,44 @@
+<div class="container1">
+    <div class="mart-30 card-body">
+        <form [formGroup]="peopleForm" (ngSubmit)="onSubmit()">
+            <div class="form-group" style="display:none;">
+                <label for="inputid">Id</label>
+                <input class="form-control" type="text" formControlName="id">
+            </div>
+
+            <div class="form-group">
+                <label for="inputPeople">Người thuê</label>
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_thue">Thời gian thuê</label>
+                <input class="form-control" (keyup)="updateTime_end()" type="text" formControlName="time_thue">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_start">Thời gian bắt đầu</label>
+                <input class="form-control" type="text" formControlName="time_start">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_end">Thời gian kết thúc</label>
+                <input class="form-control" value={{time_end}} type="text" formControlName="time_end">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputRoom">Phòng</label>
+                <select class="custom-select form-control" (change)="updateRoom($event.target.value)"
+                    formControlName="room">
+                    <!-- <option value="">Choose People</option> -->
+                    <option *ngFor="let eachRoom of room" value="{{eachRoom}}">{{eachRoom}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

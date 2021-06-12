@@ -1,0 +1,175 @@
+<h3 class="flexbox-center-center mart-20">Biểu đồ doanh thu trong năm {{year}}</h3>
+<div class="whitecolor flexbox-center-center mart-20">
+    <table class="table mar-10">
+        <tr>
+            <td style="width:700px;height:50%"><canvas id="lineChart"></canvas></td>
+        </tr>
+    </table>
+    <table class="table mar-10">
+        <tr>
+            <td style="width:700px;height:50%"><canvas id="barChart"></canvas></td>
+        </tr>
+    </table>
+</div>
+
+<div class="container1 list">
+    <div class="fs-18 fw-700 yellowcolor">Tổng số tiền theo từng tháng trong năm {{year}}:</div>
+    <div class="flexbox-start-start">
+        <div class="">
+            <div class="total flexbox-center-center" *ngFor="let eachMonth of month">
+                Tháng {{eachMonth}}
+            </div>
+        </div>
+        <div class="">
+            <div class="total2  flexbox-center-center" *ngFor="let eachMoney of moneyMonthFake">
+                {{eachMoney}} đ
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="container1 fw-700">
+    <h3 class="mart-20 marr-20 yellowcolor">
+        Tổng tất cả tiền trong năm {{year}}: {{totalMoney}} đ
+    </h3>
+</h2>
+
+<h3 class="container1 fw-700">Những phòng đã thuê từng tháng trong năm {{year}}</h3>
+<div class="container1 marb-30 flexbox-center-between">
+    <div class="month">
+        <div class="yellowcolor">Tháng 1</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month1">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month1==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 2</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month2">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month2==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 3</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month3">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month3==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 4</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month4">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month4==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 5</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month5">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month5==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 6</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month6">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month6==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 7</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month7">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month7==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="">
+            <div class="yellowcolor">Tháng 8</div>
+            <div class="flexbox-center-start">
+                <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month8">
+                    <div class="" *ngIf="eachRoom">
+                        {{eachRoom}}
+                    </div>
+                </div>
+                <div class="" *ngIf="month8==''">
+                    Không có phòng nào được thuê
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 9</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month9">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month9==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 10</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month10">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month10==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 11</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month11">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month11==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+    <div class="month">
+        <div class="yellowcolor">Tháng 12</div>
+        <div class="flexbox-center-start">
+            <div class="roomOccupy flexbox-center-center" *ngFor="let eachRoom of month12">
+                {{eachRoom}}
+            </div>
+            <div class="" *ngIf="month12==''">
+                Không có phòng nào được thuê
+            </div>
+        </div>
+    </div>
+</div>

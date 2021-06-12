@@ -1,0 +1,124 @@
+<div class="container1 mart-20 marb-20">
+    <div class="card-body">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="flexbox-center-between">
+            <div class="form-group marr-20">
+                <label for="inputMonth">Month</label>
+                <br />
+                <select class="custom-select form-control" (change)="updateMonth($event.target.value)"
+                    formControlName="month">
+                    <option *ngFor="let eachMonth of month" value="{{eachMonth}}">
+                        {{eachMonth}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputYear">Year</label>
+                <br />
+                <select class="custom-select form-control" (change)="updateYear($event.target.value)"
+                    formControlName="year">
+                    <option *ngFor="let eachYear of year" value="{{eachYear}}">
+                        {{eachYear}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputRoom">Room</label>
+                <br />
+                <select class="custom-select form-control" (change)="updateRoom($event.target.value)"
+                    formControlName="room">
+                    <option *ngFor="let eachRoom of room" value="{{eachRoom}}">
+                        {{eachRoom}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputPeople">People</label>
+                <br />
+                <select class="custom-select form-control" (change)="updatePeople($event.target.value)"
+                    formControlName="people">
+                    <option *ngFor="let eachPeople of people" value="{{eachPeople}}">
+                        {{eachPeople}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputStatus">Status</label>
+                <br />
+                <select class="custom-select form-control" (change)="updateStatus($event.target.value)"
+                    formControlName="status">
+                    <option *ngFor="let eachStatus of status" value="{{eachStatus}}">
+                        {{eachStatus}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20 mart-23">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Lọc danh sách</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="process" class="containe mart-20">
+    <div class="number1 flexbox-center-start">
+        <div style="width:80px">MONTH</div>
+        <div style="width:80px">YEAR</div>
+        <div style="width:80px">ROOM</div>
+        <div style="width:250px">PEOPLE</div>
+        <div style="width:150px" class="fs-14">ELECTRICITY BILL</div>
+        <div style="width:150px">WATER BILL</div>
+        <div style="width:150px">ROOM BILL</div>
+        <div style="width:200px">TOTAL</div>
+        <div style="width:150px">STATUS</div>
+        <div style="width:170px">Edit</div>
+    </div>
+    <div class="number1 flexbox-center-start" *ngFor="let eachList of pagedItems">
+        <div style="width:80px" class="whitecolor">{{eachList.month}}</div>
+        <div style="width:80px" class="whitecolor">{{eachList.year}}</div>
+        <div style="width:80px" class="whitecolor">{{eachList.room}}</div>
+        <div style="width:250px" class="whitecolor">{{eachList.people}}</div>
+        <div style="width:150px" class="whitecolor">{{eachList.electricity_bill}} đ</div>
+        <div style="width:150px" class="whitecolor">{{eachList.water_bill}} đ</div>
+        <div style="width:150px" class="whitecolor">{{eachList.room_bill}} đ</div>
+        <div style="width:200px" class="whitecolor">{{eachList.total}} đ</div>
+        <div style="width:150px" class="whitecolor button">
+            {{eachList.status}}
+        </div>
+        <div style="width:170px" class="">
+            <button type="button" class="btn btn-warning marr-5" routerLink="/edit/{{eachList.id}}">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="removeCatalog(eachList.id)">Delete</button>
+        </div>
+    </div>
+    <div class="flexbox-center-end">
+        <div class="">
+            <div class="whitecolor">
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                    <li class="border page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(pager.currentPage - 1)">
+                            <i class="fas fa-step-backward"></i>
+                        </a>
+                    </li>
+                    <li class="border page-item" *ngFor="let page of pager.pages"
+                        [ngClass]="{active:pager.currentPage === page}">
+                        <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                    </li>
+                    <li class="border page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.currentPage + 1)">
+                            <i class="fas fa-step-forward"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="start" class="container mart-20">
+    <div class="" *ngIf="process==false">
+        <h1 class="flexbox-center-center">Không tìm thấy kết quả yêu cầu</h1>
+    </div>
+</div>

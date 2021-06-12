@@ -1,0 +1,141 @@
+<div class="containe whitecolor">
+    <div class="mart-20 marb-20">
+        <a routerLink="/pagePay" class="filter">Lọc Danh Sách</a>
+        <!-- <app-pagePay></app-pagePay> -->
+    </div>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Catalog">
+            <div class="number1 flexbox-center-start">
+                <div style="width:80px">MONTH</div>
+                <div style="width:80px">YEAR</div>
+                <div style="width:80px">ROOM</div>
+                <div style="width:250px">PEOPLE</div>
+                <div style="width:150px" class="fs-14">ELECTRICITY BILL</div>
+                <div style="width:150px">WATER BILL</div>
+                <div style="width:150px">ROOM BILL</div>
+                <div style="width:200px">TOTAL</div>
+                <div style="width:150px">STATUS</div>
+                <div style="width:250px">EDIT</div>
+                <div class="" style="width:100px;border:none">
+                    <button type="button" class="btn btn-success" routerLink="/createCatalog">Create</button>
+                </div>
+
+            </div>
+            <div class="number1 flexbox-center-start" *ngFor="let eachCatalog of pagedItems">
+                <div style="width:80px" class="whitecolor">{{eachCatalog.month}}</div>
+                <div style="width:80px" class="whitecolor">{{eachCatalog.year}}</div>
+                <div style="width:80px" class="whitecolor">{{eachCatalog.room}}</div>
+                <div style="width:250px" class="whitecolor">{{eachCatalog.people}}</div>
+                <div style="width:150px" class="whitecolor">{{eachCatalog.electricity_bill}} đ</div>
+                <div style="width:150px" class="whitecolor">{{eachCatalog.water_bill}} đ</div>
+                <div style="width:150px" class="whitecolor">{{eachCatalog.room_bill}} đ</div>
+                <div style="width:200px" class="whitecolor">{{eachCatalog.total}} đ</div>
+                <div style="width:150px" class="whitecolor button" *ngIf='eachCatalog.status == "Charge"'>
+                    Payed
+                </div>
+                <div style="width:150px" class="whitecolor button" *ngIf='eachCatalog.status != "Charge"'>
+                    Not Pay
+                </div>
+                <div style="width:250px" class="">
+                    <button type="button" class="btn btn-warning marr-5"routerLink="/edit/{{eachCatalog.id}}">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="removeCatalog(eachCatalog.id)">Delete</button>
+                </div>
+            </div>
+            <div class="flexbox-center-end">
+                <div class="mart-30">
+                    <div class="whitecolor">
+                        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                            <!-- <li class="border page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a class="page-link" (click)="setPage(1)">First</a>
+                        </li> -->
+                            <li class="border page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                                <a class="page-link" (click)="setPage(pager.currentPage - 1)">
+                                    <i class="fas fa-step-backward"></i>
+                                </a>
+                            </li>
+                            <li class="border page-item" *ngFor="let page of pager.pages"
+                                [ngClass]="{active:pager.currentPage === page}">
+                                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                            </li>
+                            <li class="border page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                <a class="page-link" (click)="setPage(pager.currentPage + 1)">
+                                    <i class="fas fa-step-forward"></i>
+                                </a>
+                            </li>
+                            <!-- <li class="border page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+                        </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="People">
+            <div class="frame">
+                <div class="number1 flexbox-center-start">
+                    <div style="width:280px">PEOPLE</div>
+                    <div style="width:150px">ROOM</div>
+                    <div style="width:200px">Key</div>
+                    <div style="width:200px">Thời gian thuê</div>
+                    <div style="width:200px">Bắt Đầu</div>
+                    <div style="width:200px">Kết Thúc</div>
+                    <div style="width:250px">EDIT</div>
+                    <div class="" style="width:100px;border:none">
+                        <button type="button" class="btn btn-success" routerLink="/create">Create People</button>
+                    </div>
+                </div>
+                <div class="number1 flexbox-center-start" *ngFor="let eachPeople of people; let i = index">
+                    <div style="width:280px" class="whitecolor">{{eachPeople.name}}</div>
+                    <div style="width:150px" class="whitecolor">{{eachPeople.room}}
+                    </div>
+                    <div style="width:200px" class="whitecolor">{{eachPeople.key}}</div>
+                    <div style="width:200px" class="whitecolor">{{eachPeople.time_thue}} Tháng</div>
+                    <div style="width:200px" class="whitecolor">{{eachPeople.time_start}}</div>
+                    <div style="width:200px" class="whitecolor">{{eachPeople.time_end}}</div>
+                    <div style="width:250px" class="">
+                        <button type="button" class="btn btn-warning marr-5"
+                            routerLink="/editPeople/{{eachPeople.id}}">Edit People</button>
+                        <button type="button" class="btn btn-danger"
+                            (click)="removePeople(eachPeople.id,eachPeople.room )">Delete People</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+    <div class="fs-20 whitecolor mart-20 marb-20">
+        Tổng tất cả tiền:{{totalMoney}} đ
+    </div>
+    
+    <div class="mart-20 fs-20">
+        Danh sách các phòng đang cho thuê & còn trống:
+    </div>
+    <div class="">
+        <div class="allRoom flexbox-center-start mar-15">
+            <div class="mar-3" *ngFor="let eachRoom of arrayRoom">
+                <div class="roomOccupy flexbox-center-center relative" *ngIf="eachRoom.status=='occupy'">
+                    {{eachRoom.room}}
+                   <sup> <i class="fas fa-minus-circle" (click)="removeRoom(eachRoom.room, eachRoom.user)"></i></sup>
+                </div>
+                <div class="roomEmpty flexbox-center-center relative" *ngIf="eachRoom.status=='empty'">
+                    {{eachRoom.room}}
+                    <sup> <i class="fas fa-minus-circle" (click)="removeRoom(eachRoom.room, eachRoom.user)"></i></sup>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success marb-15" routerLink="/createRoom">Create Room</button>
+        <div class="flexbox-center-start">
+            <div class="note1 marr-10"></div>
+            <div>Phòng Đang Trống</div>
+        </div>
+        <div class="flexbox-center-start mart-10">
+            <div class="note2 marr-10"></div>
+            <div>Phòng Đã Cho Thuê</div>
+        </div>
+    </div>
+
+    <div class="chart marb-20" *ngFor="let eachYear of year">
+        <a class="chart" routerLink="/chart/{{eachYear}}">Biểu Đồ Doanh Thu Năm {{eachYear}}</a>
+    </div>
+    <app-month></app-month>
+</div>

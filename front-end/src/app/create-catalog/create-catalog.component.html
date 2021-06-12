@@ -1,0 +1,77 @@
+<div class="container1 mart-20 marb-20">
+    <div class="card-body">
+        <form [formGroup]="catalogForm" (ngSubmit)="onSubmit()" class="">
+            <div class="form-group marr-20" style="display:none;">
+                <label for="inputId">Id</label>
+                <input class="form-control" type="number" formControlName="id">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputMonth">Month</label>
+                <select class="custom-select form-control" (change)="updateMonth($event.target.value)"
+                    formControlName="month">
+                    <!-- <option value="">Choose Month</option> -->
+                    <option *ngFor="let eachMonth of month" value="{{eachMonth}}">
+                        {{eachMonth}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputYear">Nhập Năm</label>
+                <input class="form-control" type="number" formControlName="year">
+            </div>
+
+            <!-- <div class="form-group marr-20">
+                <label for="inputPeople">People</label>
+                <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+                    formControlName="people">
+                    <option *ngFor="let eachHuman of lock" value="{{eachHuman}}">
+                        {{eachHuman}}
+                    </option>
+                </select>
+            </div> -->
+
+            
+            <div class="form-group marr-20">
+                <label for="inputRoom">Room</label>
+                <select class="custom-select form-control" (change)="updateRoom($event.target.value)"
+                    formControlName="room">
+                    <option *ngFor="let eachRoom of room" value="{{eachRoom}}">
+                        {{eachRoom}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputElectricityBill">Nhập số điện</label>
+                <input class="form-control" type="number" formControlName="electricity_bill">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputWaterBill">Nhập số nước</label>
+                <input class="form-control" type="number" formControlName="water_bill">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputRoomBill">Tiền phòng</label>
+                <input class="form-control" value={{tienphong}} type="number" formControlName="room_bill">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputStatus">Status</label>
+                <select class="custom-select form-control" (change)="updateStatus($event.target.value)"
+                    formControlName="status">
+                    <!-- <option value="">Choose People</option> -->
+                    <option *ngFor="let eachStatus of status" value="{{eachStatus}}">
+                        {{eachStatus}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group marr-20 mart-23">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

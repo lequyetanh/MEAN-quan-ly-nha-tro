@@ -1,0 +1,29 @@
+<!-- header -->
+<div class="header">
+    <div class="container flexbox-center-between">
+        <!-- logo website -->
+        <a routerLink="" title="Home">
+            <div class="logo">
+                <span class="fs-25 fw-900 whitecolor">Quản Lý Nhà Trọ Canva.com</span>
+            </div>
+        </a>
+        <!-- search -->
+        <div class="relative">
+            <input class="form-control form-search" id="s" type="search" placeholder="Tìm kiếm theo tên ..."
+                aria-label="Search" autocomplete="false" [(ngModel)]="people">
+            <a routerLink="/search/{{people}}" title="search">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+        <!-- contact -->
+        <div class="flexbox-center-between">
+            <a *ngIf="loggedIn === false" class="marl-5" href="/login" title="admin">
+                <button type="button" class="btn btn-warning">Login</button>
+            </a>
+            <div *ngIf="loggedIn" class="logged-in loggin">
+                <button type="button" class="logout btn btn-warning marr-10" (click)="doLogout()">Log Out</button>
+                <a class="admin marl-10" class="btn btn-warning adminFrame" routerLink="/admin">{{loggedIn.user.email}}</a>
+            </div>
+        </div>
+    </div>
+</div>

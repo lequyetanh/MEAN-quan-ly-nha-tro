@@ -1,0 +1,35 @@
+module.exports = [
+  {
+    id:1,
+    name:"Nguyễn Việt Cường",
+    email: "nguyenvietcuong@gmail.com",
+    phone: "87238923823",
+    time_thue: 3,
+    time_start: "12-1-2021",
+    time_end: "12-4-2021",
+    room:412,
+    key:"iwpfnci",
+  },
+  {
+    id:2,
+    name:"Thân Thị Lệ",
+    email: "thanthile@gmail.com",
+    phone: "02487242489",
+    time_thue: 6,
+    time_start: "12-1-2021",
+    time_end: "12-7-2021",
+    room:413,
+    key:"wfoicw",
+  },
+  {
+    id:3,
+    name:"Vũ Ngọc Tùng",
+    email: "vungoctung@gmail.com",
+    phone: "0842894823",
+    time_thue: 3,
+    time_start: "12-1-2021",
+    time_end: "12-4-2021",
+    room:414,
+    key:"oiwfiwf",
+  }
+]

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="mart-30 card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="flexbox-center-start">
+            <div class="form-group marr-20" style="display:none;">
+                <label for="inputId">Id</label>
+                <input class="form-control" type="number" formControlName="id">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputMonth">Month</label>
+                <input class="form-control" type="number" formControlName="month">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputYear">Year</label>
+                <input class="form-control" type="number" formControlName="year">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputVerify3">Room</label>
+                <input class="form-control" type="number" formControlName="room">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputPeople">People</label>
+                <input class="form-control" type="text" formControlName="people">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputElectricityBill">Electricity Bill</label>
+                <input class="form-control" type="number" formControlName="electricity_bill" (keyup)="updateTotal()">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputWaterBill">Water Bill</label>
+                <input class="form-control" type="number" formControlName="water_bill" (keyup)="updateTotal()">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputRoomBill">Room Bill</label>
+                <input class="form-control" type="number" formControlName="room_bill" (keyup)="updateTotal()">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputTotalBill">Total Bill</label>
+                <input class="form-control" type="number" formControlName="total" value={{total}}>
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputStatus">Status</label>
+                <input class="form-control" type="text" formControlName="status">
+            </div>
+        
+            <div class="form-group marr-20">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+
+
+.containe{
+    width:90%;
+    margin:auto;
+}
+
+.number1{
+    border:1px solid #FFF;
+}
+
+.number1 div{
+    color:rgb(0, 132, 255);
+    border-right:1px solid rgb(212, 212, 212);
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:18px;
+    font-weight:700;
+}
+
+.button{
+    background: transparent;
+}
+
+.page-link{
+    background:#111010 !important;
+    border:none !important;
+    outline: none !important;
+    cursor:pointer !important;
+}
+
+.page-item.active .page-link {
+    z-index: 1!important;
+    color: rgb(0, 0, 0)!important;
+    background-color: #dfdfdf!important;
+}
+
+.border.disabled{
+    border:1px solid #353434 !important;       
+}
+
+.border{
+border:1px solid #afafaf !important;    
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}

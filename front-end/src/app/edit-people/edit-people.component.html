@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="mart-30 card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="">
+            <div class="form-group marr-20" style="display:none;">
+                <label for="inputId">Id</label>
+                <input class="form-control" type="text" formControlName="id">
+            </div>
+
+            <div class="form-group marr-20">
+                <label for="inputName">Name</label>
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+        
+            <div class="form-group marr-20">
+                <label for="inputVerify3">Room</label>
+                <input class="form-control" type="text" formControlName="room">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_thue">Thời gian thuê</label>
+                <input class="form-control" type="text" formControlName="time_thue" >
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_start">Thời gian bắt đầu</label>
+                <input class="form-control" type="text" formControlName="time_start">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTime_end">Thời gian kết thúc</label>
+                <input class="form-control" type="text" formControlName="time_end">
+            </div>
+        
+            <div class="form-group marr-20">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

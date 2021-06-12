@@ -1,0 +1,56 @@
+<div class="containe mart-20">
+    <div class="number1 flexbox-center-start">
+        <div style="width:80px">MONTH</div>
+        <div style="width:80px">ROOM</div>
+        <div style="width:250px">PEOPLE</div>
+        <div style="width:150px" class="fs-14">ELECTRICITY BILL</div>
+        <div style="width:150px">WATER BILL</div>
+        <div style="width:150px">ROOM BILL</div>
+        <div style="width:200px">TOTAL</div>
+        <div style="width:150px">STATUS</div>
+        <div style="width:155px">PAY</div>
+    </div>
+    <div class="number1 flexbox-center-start" *ngFor="let eachCatalog of pagedItems">
+        <div style="width:80px" class="whitecolor">{{eachCatalog.month}}</div>
+        <div style="width:80px" class="whitecolor">{{eachCatalog.room}}</div>
+        <div style="width:250px" class="whitecolor">{{eachCatalog.people}}</div>
+        <div style="width:150px" class="whitecolor">{{eachCatalog.electricity_bill}} đ</div>
+        <div style="width:150px" class="whitecolor">{{eachCatalog.water_bill}} đ</div>
+        <div style="width:150px" class="whitecolor">{{eachCatalog.room_bill}} đ</div>
+        <div style="width:200px" class="whitecolor">{{eachCatalog.total}} đ</div>
+        <div style="width:150px" class="whitecolor button">
+            {{eachCatalog.status}}
+        </div>
+        <div style="width:155px" class="">
+            <button [hidden]="eachCatalog.status == 'Charge'" class="btn btn-danger" routerLink="/pay/{{eachCatalog.id}}">
+                Pay Online
+            </button>
+            <span [hidden]="eachCatalog.status == 'No Charge'">
+                Completed
+            </span>
+        </div>
+    </div>
+    <div class="flexbox-center-end">
+        <div class="">
+          <div class="whitecolor">
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li class="border page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(1)">First</a>
+              </li>
+              <li class="border page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(pager.currentPage - 1)"><i class="fas fa-caret-left"></i></a>
+              </li>
+              <li class="border page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li class="border page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.currentPage + 1)"><i class="fas fa-caret-right"></i></a>
+              </li>
+              <li class="border page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
